@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CHITIETHOADONES>
+    <CHITIETHOADON>
+    <IDHoaDon>HD002</IDHoaDon>
+    <IDSach>S002</IDSach>
+    <SoLuong>10</SoLuong>
+    <DonGia>20000</DonGia>
+    <ThanhTien>200000</ThanhTien>
+  </CHITIETHOADON>
+  <CHITIETHOADON>
+    <IDHoaDon>HD003</IDHoaDon>
+    <IDSach>S002</IDSach>
+    <SoLuong>10</SoLuong>
+    <DonGia>20000</DonGia>
+    <ThanhTien>200000</ThanhTien>
+  </CHITIETHOADON>
+</CHITIETHOADONES>

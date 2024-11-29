@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<THELOAI>
+    <Category>
+        <IDTheLoai>TL001</IDTheLoai>
+        <TenTheLoai>Chính trị, pháp luật</TenTheLoai>
+    </Category>
+    <Category>
+        <IDTheLoai>TL002</IDTheLoai>
+        <TenTheLoai>Khoa học công nghệ, Kinh tế</TenTheLoai>
+    </Category>
+    <Category>
+        <IDTheLoai>TL003</IDTheLoai>
+        <TenTheLoai>Văn học nghệ thuật</TenTheLoai>
+    </Category>
+    <Category>
+        <IDTheLoai>TL004</IDTheLoai>
+        <TenTheLoai>Văn hóa xã hội, Lịch sử</TenTheLoai>
+    </Category>
+    <Category>
+        <IDTheLoai>TL005</IDTheLoai>
+        <TenTheLoai>Giáo trình</TenTheLoai>
+    </Category>
+    <Category>
+        <IDTheLoai>TL006</IDTheLoai>
+        <TenTheLoai>Truyện, tiểu thuyết</TenTheLoai>
+    </Category>
+    <Category>
+        <IDTheLoai>TL007</IDTheLoai>
+        <TenTheLoai>Tâm lý, tâm linh, tôn giáo</TenTheLoai>
+    </Category>
+    <Category>
+        <IDTheLoai>TL008</IDTheLoai>
+        <TenTheLoai>Thiếu nhi</TenTheLoai>
+    </Category>
+</THELOAI>

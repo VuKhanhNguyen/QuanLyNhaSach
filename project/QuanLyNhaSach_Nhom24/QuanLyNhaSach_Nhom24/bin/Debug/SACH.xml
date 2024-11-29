@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SACHES>
+  <SACH>
+    <IDSach>S001</IDSach>
+    <TenSach>Thiên tài bên trái, kẻ điên bên phải</TenSach>
+    <TacGia>Cao Minh</TacGia>
+    <IDTheLoai>TL007</IDTheLoai>
+    <NhaXuatBan>NXB Thế giới</NhaXuatBan>
+    <NamXuatBan>2021</NamXuatBan>
+    <GiaNhap>200000</GiaNhap>
+    <GiaBan>250000</GiaBan>
+    <SoLuongTon>199</SoLuongTon>
+  </SACH>
+  <SACH>
+    <IDSach>S002</IDSach>
+    <TenSach>Mỗi lần vấp ngã là một lần trưởng thành</TenSach>
+    <TacGia>Liêu Trí Phong</TacGia>
+    <IDTheLoai>TL004</IDTheLoai>
+    <NhaXuatBan>Thanh niên</NhaXuatBan>
+    <NamXuatBan>2022</NamXuatBan>
+    <GiaNhap>100000</GiaNhap>
+    <GiaBan>120000</GiaBan>
+    <SoLuongTon>100</SoLuongTon>
+  </SACH>
+  <SACH>
+    <IDSach>S003</IDSach>
+    <TenSach>Thiên tài bên trái, kẻ điên bên phải</TenSach>
+    <TacGia>Cao Minh</TacGia>
+    <IDTheLoai>TL002</IDTheLoai>
+    <NhaXuatBan>NXB Thế giới</NhaXuatBan>
+    <NamXuatBan>2021</NamXuatBan>
+    <GiaNhap>200000</GiaNhap>
+    <GiaBan>250000</GiaBan>
+    <SoLuongTon>199</SoLuongTon>
+  </SACH>
+  <SACH>
+    <IDSach>S004</IDSach>
+    <TenSach>Thiên tài bên trái, kẻ điên bên phải</TenSach>
+    <TacGia>Cao Minh</TacGia>
+    <IDTheLoai>TL006</IDTheLoai>
+    <NhaXuatBan>NXB Thế giới</NhaXuatBan>
+    <NamXuatBan>2021</NamXuatBan>
+    <GiaNhap>200000</GiaNhap>
+    <GiaBan>250000</GiaBan>
+    <SoLuongTon>199</SoLuongTon>
+  </SACH>
+  <SACH>
+    <IDSach>S005</IDSach>
+    <TenSach>Thiên tài bên trái, kẻ điên bên phải</TenSach>
+    <TacGia>Cao Minh</TacGia>
+    <IDTheLoai>TL004</IDTheLoai>
+    <NhaXuatBan>NXB Thế giới</NhaXuatBan>
+    <NamXuatBan>2021</NamXuatBan>
+    <GiaNhap>200000</GiaNhap>
+    <GiaBan>250000</GiaBan>
+    <SoLuongTon>199</SoLuongTon>
+  </SACH>
+  <SACH>
+    <IDSach>S007</IDSach>
+    <TenSach>Thiên tài bên trái, kẻ điên bên phải</TenSach>
+    <TacGia>Cao Minh</TacGia>
+    <IDTheLoai>TL002</IDTheLoai>
+    <NhaXuatBan>NXB Thế giới</NhaXuatBan>
+    <NamXuatBan>2021</NamXuatBan>
+    <GiaNhap>200000</GiaNhap>
+    <GiaBan>250000</GiaBan>
+    <SoLuongTon>200</SoLuongTon>
+  </SACH>
+</SACHES>

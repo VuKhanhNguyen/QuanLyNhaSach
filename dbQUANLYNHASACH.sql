@@ -97,3 +97,8 @@ CREATE TABLE CHITIETPHIEUNHAP (
 
 select * from NHANVIEN
 select * from THELOAI
+select * from SACH
+select * from KHACHHANG
+select * from NHACUNGCAP
+select * from HOADON
+select * from CHITIETHOADON

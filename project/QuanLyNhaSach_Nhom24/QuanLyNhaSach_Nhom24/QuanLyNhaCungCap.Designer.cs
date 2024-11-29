@@ -61,6 +61,7 @@
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDongBoDuLieu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhaCungCap)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -116,7 +117,7 @@
             // btnSua
             // 
             this.btnSua.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.update;
-            this.btnSua.Location = new System.Drawing.Point(823, 241);
+            this.btnSua.Location = new System.Drawing.Point(823, 205);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(88, 50);
             this.btnSua.TabIndex = 54;
@@ -126,7 +127,7 @@
             // btnThem
             // 
             this.btnThem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.add1;
-            this.btnThem.Location = new System.Drawing.Point(823, 168);
+            this.btnThem.Location = new System.Drawing.Point(823, 132);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(88, 50);
             this.btnThem.TabIndex = 53;
@@ -198,7 +199,7 @@
             // btnXoa
             // 
             this.btnXoa.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.delete;
-            this.btnXoa.Location = new System.Drawing.Point(823, 313);
+            this.btnXoa.Location = new System.Drawing.Point(823, 277);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 52);
             this.btnXoa.TabIndex = 55;
@@ -257,9 +258,9 @@
             this.btnLamMoi.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.ForeColor = System.Drawing.Color.Green;
-            this.btnLamMoi.Location = new System.Drawing.Point(487, 210);
+            this.btnLamMoi.Location = new System.Drawing.Point(491, 210);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(106, 33);
+            this.btnLamMoi.Size = new System.Drawing.Size(109, 33);
             this.btnLamMoi.TabIndex = 26;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.UseVisualStyleBackColor = false;
@@ -267,7 +268,7 @@
             // 
             // tbSoDienThoai
             // 
-            this.tbSoDienThoai.Location = new System.Drawing.Point(192, 170);
+            this.tbSoDienThoai.Location = new System.Drawing.Point(215, 170);
             this.tbSoDienThoai.Name = "tbSoDienThoai";
             this.tbSoDienThoai.Size = new System.Drawing.Size(255, 27);
             this.tbSoDienThoai.TabIndex = 21;
@@ -284,7 +285,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(192, 213);
+            this.tbEmail.Location = new System.Drawing.Point(215, 213);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(255, 27);
             this.tbEmail.TabIndex = 13;
@@ -311,7 +312,7 @@
             // 
             // tbDiaChi
             // 
-            this.tbDiaChi.Location = new System.Drawing.Point(192, 127);
+            this.tbDiaChi.Location = new System.Drawing.Point(215, 127);
             this.tbDiaChi.Name = "tbDiaChi";
             this.tbDiaChi.Size = new System.Drawing.Size(255, 27);
             this.tbDiaChi.TabIndex = 9;
@@ -321,14 +322,14 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(7, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 23);
+            this.label3.Size = new System.Drawing.Size(202, 23);
             this.label3.TabIndex = 8;
             this.label3.Text = "Tên nhà cung cấp:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbTenNhaCungCap
             // 
-            this.tbTenNhaCungCap.Location = new System.Drawing.Point(192, 83);
+            this.tbTenNhaCungCap.Location = new System.Drawing.Point(215, 83);
             this.tbTenNhaCungCap.Name = "tbTenNhaCungCap";
             this.tbTenNhaCungCap.Size = new System.Drawing.Size(255, 27);
             this.tbTenNhaCungCap.TabIndex = 7;
@@ -338,14 +339,14 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(8, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 23);
+            this.label1.Size = new System.Drawing.Size(201, 23);
             this.label1.TabIndex = 6;
             this.label1.Text = "Mã nhà cung cấp:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbIDNhaCungCap
             // 
-            this.tbIDNhaCungCap.Location = new System.Drawing.Point(192, 41);
+            this.tbIDNhaCungCap.Location = new System.Drawing.Point(215, 41);
             this.tbIDNhaCungCap.Name = "tbIDNhaCungCap";
             this.tbIDNhaCungCap.Size = new System.Drawing.Size(255, 27);
             this.tbIDNhaCungCap.TabIndex = 4;
@@ -383,11 +384,23 @@
             this.pictureBox1.TabIndex = 52;
             this.pictureBox1.TabStop = false;
             // 
+            // btnDongBoDuLieu
+            // 
+            this.btnDongBoDuLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDongBoDuLieu.Location = new System.Drawing.Point(823, 344);
+            this.btnDongBoDuLieu.Name = "btnDongBoDuLieu";
+            this.btnDongBoDuLieu.Size = new System.Drawing.Size(88, 52);
+            this.btnDongBoDuLieu.TabIndex = 59;
+            this.btnDongBoDuLieu.Text = "Đồng bộ XML - SQL";
+            this.btnDongBoDuLieu.UseVisualStyleBackColor = true;
+            this.btnDongBoDuLieu.Click += new System.EventHandler(this.btnDongBoDuLieu_Click);
+            // 
             // QuanLyNhaCungCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 666);
+            this.Controls.Add(this.btnDongBoDuLieu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.label11);
@@ -448,5 +461,6 @@
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnDongBoDuLieu;
     }
 }

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NHACUNGCAPES>
+  <NHACUNGCAP>
+    <IDNhaCungCap>NCC01</IDNhaCungCap>
+    <TenNhaCungCap>Nhà cung cấp A</TenNhaCungCap>
+    <DiaChi>Ðà Nẵng</DiaChi>
+    <SoDienThoai>0795605214</SoDienThoai>
+    <Email>nhacungcapsachA@gmail.com</Email>
+  </NHACUNGCAP>
+  <NHACUNGCAP>
+    <IDNhaCungCap>NCC02</IDNhaCungCap>
+    <TenNhaCungCap>Nhà cung cấp B</TenNhaCungCap>
+    <DiaChi>Ðà Nẵng</DiaChi>
+    <SoDienThoai>0795605214</SoDienThoai>
+    <Email>nhacungcapsachB@gmail.com</Email>
+  </NHACUNGCAP>
+  <NHACUNGCAP>
+    <IDNhaCungCap>NCC03</IDNhaCungCap>
+    <TenNhaCungCap>Nhà cung cấp A</TenNhaCungCap>
+    <DiaChi>Ðà Nẵng</DiaChi>
+    <SoDienThoai>0795605214</SoDienThoai>
+    <Email>nhacungcapsachA@gmail.com</Email>
+  </NHACUNGCAP>
+</NHACUNGCAPES>

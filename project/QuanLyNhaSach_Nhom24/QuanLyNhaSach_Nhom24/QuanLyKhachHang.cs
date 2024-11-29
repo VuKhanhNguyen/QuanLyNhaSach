@@ -4,21 +4,95 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace QuanLyNhaSach_Nhom24
 {
     public partial class QuanLyKhachHang : Form
     {
-        private string connectionString = "Data Source=LAPTOP-Q12JULH6\\KHANHKHIEMTON;Initial Catalog=dbQUANLYNHASACH;Integrated Security=True";
-
+        private readonly string connectionString = "Data Source=LAPTOP-Q12JULH6\\KHANHKHIEMTON;Initial Catalog=dbQUANLYNHASACH;Integrated Security=True";
+        private readonly string xmlFilePath = Path.Combine(Application.StartupPath, "KHACHHANG.xml");
         public QuanLyKhachHang()
         {
             InitializeComponent();
+            
+            if (!File.Exists(xmlFilePath))
+            {
+                ExportKhachHangToXml();
+            }
             LoadKhachHangData();
+        }
+
+
+        private void ExportKhachHangToXml()
+        {
+            try
+            {
+                string query = "SELECT * FROM KHACHHANG";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    XElement sachXml = new XElement("KHACHHANGES",
+                        dataTable.AsEnumerable().Select(row =>
+                            new XElement("KHACHHANG",
+                                row.Table.Columns.Cast<DataColumn>().Select(col =>
+                                    new XElement(col.ColumnName, row[col])
+                                )
+                            )
+                        )
+                    );
+
+                    sachXml.Save(xmlFilePath);
+                }
+
+                //MessageBox.Show("Xuất dữ liệu sang SACH.xml thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xuất dữ liệu sang XML: " + ex.Message);
+            }
+        }//end ExportSachToXml
+
+        private void LoadKhachHangData()
+        {
+            
+            // Xóa dữ liệu cũ trong dataGridViewSach
+            dataGridViewKhachHang.Rows.Clear();
+
+            // Kiểm tra và thêm cột nếu chưa có
+            if (dataGridViewKhachHang.Columns.Count == 0)
+            {
+                dataGridViewKhachHang.Columns.Add("IDKhachHang", "ID Khách hàng");
+                dataGridViewKhachHang.Columns.Add("HoTen", "Họ tên");
+                dataGridViewKhachHang.Columns.Add("DiaChi", "Địa chỉ");
+                dataGridViewKhachHang.Columns.Add("SoDienThoai", "Số điện thoại");
+                dataGridViewKhachHang.Columns.Add("Email", "Email");
+                
+            }
+
+            // Tải dữ liệu từ file XML
+            XElement khachhangXml = XElement.Load(xmlFilePath);
+
+            // Thêm từng sách vào dataGridViewSach
+            foreach (XElement khachhang in khachhangXml.Elements("KHACHHANG"))
+            {
+                int rowIndex = dataGridViewKhachHang.Rows.Add();
+                dataGridViewKhachHang.Rows[rowIndex].Cells["IDKhachHang"].Value = khachhang.Element("IDKhachHang")?.Value;
+                dataGridViewKhachHang.Rows[rowIndex].Cells["HoTen"].Value = khachhang.Element("HoTen")?.Value;
+                dataGridViewKhachHang.Rows[rowIndex].Cells["DiaChi"].Value = khachhang.Element("DiaChi")?.Value;
+                dataGridViewKhachHang.Rows[rowIndex].Cells["SoDienThoai"].Value = khachhang.Element("SoDienThoai")?.Value;
+                dataGridViewKhachHang.Rows[rowIndex].Cells["Email"].Value = khachhang.Element("Email")?.Value;
+                
+            }
         }
 
         private void QuanLyKhachHang_Load(object sender, EventArgs e)
@@ -38,27 +112,7 @@ namespace QuanLyNhaSach_Nhom24
                 changetoform.Show();
             }
         }
-        private void LoadKhachHangData()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT * FROM KHACHHANG";
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                   
-                    dataGridViewKhachHang.DataSource = dataTable;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi tải dữ liệu khách hàng: " + ex.Message);
-                }
-            }
-        }
+       
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
@@ -77,126 +131,267 @@ namespace QuanLyNhaSach_Nhom24
                 tbIDKhachHang.Text = row.Cells["IDKhachHang"].Value.ToString();
                 tbHoTen.Text = row.Cells["HoTen"].Value.ToString();
                 tbDiaChi.Text = row.Cells["DiaChi"].Value.ToString();
-                
                 tbSoDienThoai.Text = row.Cells["SoDienThoai"].Value.ToString();
-                tbEmail.Text = row.Cells["Email"].Value.ToString();
-              
+                tbEmail.Text = row.Cells["Email"].Value.ToString();             
             }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (File.Exists(xmlFilePath))
             {
-                try
-                {
-                    connection.Open();
-                    string query = "INSERT INTO KHACHHANG (IDKhachHang, HoTen, DiaChi, SoDienThoai, Email) " +
-                                   "VALUES (@IDKhachHang, @HoTen, @DiaChi, @SoDienThoai, @Email)";
+                XElement khachhangXml = XElement.Load(xmlFilePath);
 
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@IDKhachHang", tbIDKhachHang.Text);
-                    command.Parameters.AddWithValue("@HoTen", tbHoTen.Text);
-                    command.Parameters.AddWithValue("@DiaChi", tbDiaChi.Text);
-                    command.Parameters.AddWithValue("@SoDienThoai", tbSoDienThoai.Text);
-                    command.Parameters.AddWithValue("@Email", tbEmail.Text);
-
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Thêm khách hàng thành công!");
-                    LoadKhachHangData();
-                }
-                catch (Exception ex)
+                bool exists = khachhangXml.Elements("KHACHHANG").Any(x => x.Element("IDKhachHang")?.Value == tbIDKhachHang.Text);
+                if (exists)
                 {
-                    MessageBox.Show("Lỗi khi thêm khách hàng: " + ex.Message);
+                    MessageBox.Show("Mã khách hàng đã tồn tại, vui lòng nhập mã khác.");
+                    return;
                 }
+
+                XElement newCustomer = new XElement("KHACHHANG",
+                    new XElement("IDKhachHang", tbIDKhachHang.Text),
+                    new XElement("HoTen", tbHoTen.Text),
+                    new XElement("DiaChi", tbDiaChi.Text),
+                    new XElement("SoDienThoai", tbSoDienThoai.Text),
+                    new XElement("Email", tbEmail.Text)
+                );
+
+                khachhangXml.Add(newCustomer);
+                khachhangXml.Save(xmlFilePath);
+
+                MessageBox.Show("Thêm khách hàng thành công!");
+                LoadKhachHangData();
+            }
+            else
+            {
+                MessageBox.Show("File XML 'KHACHHANG.xml' không tồn tại");
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (File.Exists(xmlFilePath))
             {
-                try
+                XElement khachhangXml = XElement.Load(xmlFilePath);
+
+                XElement customer = khachhangXml.Elements("KHACHHANG").FirstOrDefault(x => x.Element("IDKhachHang")?.Value == tbIDKhachHang.Text);
+                if (customer != null)
                 {
-                    connection.Open();
-                    string query = "UPDATE KHACHHANG SET HoTen = @HoTen, DiaChi = @DiaChi, " +
-                                   "SoDienThoai = @SoDienThoai, Email = @Email WHERE IDKhachHang = @IDKhachHang";
+                    customer.Element("HoTen")?.SetValue(tbHoTen.Text);
+                    customer.Element("DiaChi")?.SetValue(tbDiaChi.Text);
+                    customer.Element("SoDienThoai")?.SetValue(tbSoDienThoai.Text);
+                    customer.Element("Email")?.SetValue(tbEmail.Text);
+                    khachhangXml.Save(xmlFilePath);
 
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@IDKhachHang", tbIDKhachHang.Text);
-                    command.Parameters.AddWithValue("@HoTen", tbHoTen.Text);
-                    command.Parameters.AddWithValue("@DiaChi", tbDiaChi.Text);
-                    command.Parameters.AddWithValue("@SoDienThoai", tbSoDienThoai.Text);
-                    command.Parameters.AddWithValue("@Email", tbEmail.Text);
-
-                    command.ExecuteNonQuery();
                     MessageBox.Show("Cập nhật khách hàng thành công!");
                     LoadKhachHangData();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Lỗi khi cập nhật khách hàng: " + ex.Message);
+                    MessageBox.Show("Không tìm thấy khách hàng với mã khách hàng đã nhập.");
                 }
+            }
+            else
+            {
+                MessageBox.Show("File XML 'KHACHHANG.xml' không tồn tại");
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (File.Exists(xmlFilePath))
             {
-                try
+                XElement khachhangXml = XElement.Load(xmlFilePath);
+
+                XElement customer = khachhangXml.Elements("KHACHHANG").FirstOrDefault(x => x.Element("IDKhachHang")?.Value == tbIDKhachHang.Text);
+                if (customer != null)
                 {
-                    connection.Open();
-                    string query = "DELETE FROM KHACHHANG WHERE IDKhachHang = @IDKhachHang";
+                    customer.Remove();
+                    khachhangXml.Save(xmlFilePath);
 
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@IDKhachHang", tbIDKhachHang.Text);
-
-                    command.ExecuteNonQuery();
                     MessageBox.Show("Xóa khách hàng thành công!");
                     LoadKhachHangData();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Lỗi khi xóa khách hàng: " + ex.Message);
+                    MessageBox.Show("Không tìm thấy khách hàng với mã khách hàng đã nhập.");
                 }
+            }
+            else
+            {
+                MessageBox.Show("File XML 'KHACHHANG.xml' không tồn tại");
             }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            if (File.Exists(xmlFilePath))
+            {
+                XElement khachhangXml = XElement.Load(xmlFilePath);
+                var result = khachhangXml.Elements("KHACHHANG").FirstOrDefault(x => x.Element("IDKhachHang")?.Value == tbTimKiem.Text);
+
+                if (result != null)
+                {
+                    DisplayCustomerData(result);
+                    MessageBox.Show("Đã tìm thấy khách hàng!");
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy khách hàng với mã khách hàng đã nhập.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("File XML 'KHACHHANG.xml' không tồn tại");
+            }
+        }
+
+        private void DisplayCustomerData(XElement customer)
+        {
+            tbIDKhachHang.Text = customer.Element("IDKhachHang")?.Value;
+            tbHoTen.Text = customer.Element("HoTen")?.Value;
+            tbDiaChi.Text = customer.Element("DiaChi")?.Value;
+            tbSoDienThoai.Text = customer.Element("SoDienThoai")?.Value;
+            tbEmail.Text = customer.Element("Email")?.Value;
+        }
+
+        private void quảnLýSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            QuanLySach changetoform = new QuanLySach();
+            changetoform.Show();
+        }
+
+        private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            QuanLyKhachHang changetoform = new QuanLyKhachHang();
+            changetoform.Show();
+        }
+
+        private void quảnLýHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            QuanLyHoaDon changetoform = new QuanLyHoaDon();
+            changetoform.Show();
+        }
+
+        private void quảnLýPhiếuNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            QuanLyPhieuNhap changetoform = new QuanLyPhieuNhap();
+            changetoform.Show();
+        }
+
+        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            QuanLyNhanVien changetoform = new QuanLyNhanVien();
+            changetoform.Show();
+        }
+
+        private void quảnLýNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            QuanLyNhaCungCap changetoform = new QuanLyNhaCungCap();
+            changetoform.Show();
+        }
+
+
+        private void DongBoDuLieuTuXML()
+        {
+            if (!File.Exists(xmlFilePath))
+            {
+                MessageBox.Show("Tệp XML không tồn tại.");
+                return;
+            }
+
+            // Đọc dữ liệu từ tệp XML vào DataTable
+            DataSet ds = new DataSet();
+            ds.ReadXml(xmlFilePath);
+            DataTable dtKhachHang = ds.Tables["KHACHHANG"];
+
+            if (dtKhachHang == null)
+            {
+                MessageBox.Show("Không có dữ liệu khách hàng trong tệp XML.");
+                return;
+            }
+
+            var idsInXml = new HashSet<string>(); // Use HashSet for faster lookup
+            foreach (DataRow row in dtKhachHang.Rows)
+            {
+                idsInXml.Add(row["IDKhachHang"].ToString());
+            }
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                try
+                connection.Open();
+                foreach (DataRow row in dtKhachHang.Rows)
                 {
-                    connection.Open();
-                    string query = "SELECT * FROM KHACHHANG WHERE IDKhachHang = @IDKhachHang";
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@IDKhachHang", tbTimKiem.Text);
+                    string checkQuery = "SELECT COUNT(*) FROM KHACHHANG WHERE IDKhachHang = @IDKhachHang";
+                    SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
+                    checkCommand.Parameters.AddWithValue("@IDKhachHang", row["IDKhachHang"].ToString());
 
-                    SqlDataReader reader = command.ExecuteReader();
+                    int count = (int)checkCommand.ExecuteScalar();
 
-                    if (reader.Read())
+                    if (count == 0)
                     {
-                        tbIDKhachHang.Text = reader["IDKhachHang"].ToString();
-                        tbHoTen.Text = reader["HoTen"].ToString();
-                        tbDiaChi.Text = reader["DiaChi"].ToString();
-                        tbSoDienThoai.Text = reader["SoDienThoai"].ToString();
-                        tbEmail.Text = reader["Email"].ToString();
-                        MessageBox.Show("Đã tìm thấy khách hàng!");
+                        string insertQuery = "INSERT INTO KHACHHANG (IDKhachHang, HoTen, DiaChi, SoDienThoai, Email) " +
+                                             "VALUES (@IDKhachHang, @HoTen, @DiaChi, @SoDienThoai, @Email)";
+                        SqlCommand insertCommand = new SqlCommand(insertQuery, connection);
+                        insertCommand.Parameters.AddWithValue("@IDKhachHang", row["IDKhachHang"].ToString());
+                        insertCommand.Parameters.AddWithValue("@HoTen", row["HoTen"].ToString());
+                        insertCommand.Parameters.AddWithValue("@DiaChi", row["DiaChi"].ToString());
+                        insertCommand.Parameters.AddWithValue("@SoDienThoai", row["SoDienThoai"].ToString());
+                        insertCommand.Parameters.AddWithValue("@Email", row["Email"].ToString());
+                        insertCommand.ExecuteNonQuery();
                     }
                     else
                     {
-                        MessageBox.Show("Không tìm thấy khách hàng với mã đã nhập.");
-                    }
+                        string updateQuery = "UPDATE KHACHHANG SET HoTen = @HoTen, DiaChi = @DiaChi, SoDienThoai = @SoDienThoai, Email = @Email " +
+                     "WHERE IDKhachHang = @IDKhachHang";
 
-                    reader.Close();
+                        SqlCommand updateCommand = new SqlCommand(updateQuery, connection);
+                        updateCommand.Parameters.AddWithValue("@IDKhachHang", row["IDKhachHang"].ToString());
+                        updateCommand.Parameters.AddWithValue("@HoTen", row["HoTen"].ToString());
+                        updateCommand.Parameters.AddWithValue("@DiaChi", row["DiaChi"].ToString());
+                        updateCommand.Parameters.AddWithValue("@SoDienThoai", row["SoDienThoai"].ToString());
+                        updateCommand.Parameters.AddWithValue("@Email", row["Email"].ToString());
+                        updateCommand.ExecuteNonQuery();
+                    }
                 }
-                catch (Exception ex)
+                string sqlDeleteQuery = "SELECT IDKhachHang FROM KHACHHANG";
+                SqlCommand deleteCheckCommand = new SqlCommand(sqlDeleteQuery, connection);
+                SqlDataReader reader = deleteCheckCommand.ExecuteReader();
+
+                var idsInSql = new List<string>();
+                while (reader.Read())
                 {
-                    MessageBox.Show("Lỗi khi tìm kiếm khách hàng: " + ex.Message);
+                    idsInSql.Add(reader["IDKhachHang"].ToString());
                 }
+                reader.Close();
+
+                // For each ID in SQL, check if it's missing in XML, and delete if necessary
+                foreach (var sqlID in idsInSql)
+                {
+                    if (!idsInXml.Contains(sqlID))
+                    {
+                        // If the ID doesn't exist in XML, delete it from SQL Server
+                        SqlCommand deleteCommand = new SqlCommand("DELETE FROM KHACHHANG WHERE IDKhachHang = @IDKhachHang", connection);
+                        deleteCommand.Parameters.AddWithValue("@IDKhachHang", sqlID);
+                        deleteCommand.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Đồng bộ dữ liệu từ XML vào SQL Server thành công!");
             }
+        }
+
+
+        private void btnDongBoDuLieu_Click(object sender, EventArgs e)
+        {
+            DongBoDuLieuTuXML();
         }
     }
 }

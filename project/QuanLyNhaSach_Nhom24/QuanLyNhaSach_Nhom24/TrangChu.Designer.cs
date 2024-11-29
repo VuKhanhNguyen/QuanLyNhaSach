@@ -150,13 +150,13 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Gray;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SpringGreen;
+            this.label1.ForeColor = System.Drawing.Color.PaleTurquoise;
             this.label1.Location = new System.Drawing.Point(132, 94);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(537, 37);
             this.label1.TabIndex = 2;
             this.label1.Text = "Xin chào: ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 

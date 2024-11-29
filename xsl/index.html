@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm sách</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        input, button {
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <?xml-stylesheet type="text/xsl" href="search.xsl"?>
+    <h1>Tìm kiếm sách</h1>
+    <form>
+        <input type="text" id="searchBox" placeholder="Nhập tên sách hoặc tác giả...">
+        <button type="button" onclick="search()">Tìm kiếm</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function search() {
+            const searchText = document.getElementById('searchBox').value.trim().toLowerCase();
+            const resultDiv = document.getElementById('result');
+
+            const xsltProcessor = new XSLTProcessor();
+            const xmlRequest = new XMLHttpRequest();
+            const xslRequest = new XMLHttpRequest();
+
+            // Load XML
+            xmlRequest.open("GET", "/bin/Debug/SACH.xml", false);
+            xmlRequest.send();
+            const xml = xmlRequest.responseXML;
+
+            // Load XSL
+            xslRequest.open("GET", "search.xsl", false);
+            xslRequest.send();
+            const xsl = xslRequest.responseXML;
+
+            // Configure XSLTProcessor
+            xsltProcessor.importStylesheet(xsl);
+            xsltProcessor.setParameter(null, "searchText", searchText);
+
+            // Transform and display result
+            const fragment = xsltProcessor.transformToFragment(xml, document);
+            resultDiv.innerHTML = "";
+            resultDiv.appendChild(fragment);
+        }
+    </script>
+</body>
+</html>

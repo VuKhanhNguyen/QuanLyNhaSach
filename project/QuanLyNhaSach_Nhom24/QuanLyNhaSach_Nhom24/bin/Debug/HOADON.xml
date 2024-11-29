@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HOADONES>
+    <HOADON>
+    <IDHoaDon>HD002</IDHoaDon>
+    <NgayLapHD>2024-11-09 17:37:22</NgayLapHD>
+    <IDKhachHang>KH002</IDKhachHang>
+    <IDNhanVien>NV002</IDNhanVien>
+    <TongTien>200000</TongTien>
+  </HOADON>
+  <HOADON>
+    <IDHoaDon>HD003</IDHoaDon>
+    <NgayLapHD>2024-11-09 17:37:22</NgayLapHD>
+    <IDKhachHang>KH002</IDKhachHang>
+    <IDNhanVien>NV002</IDNhanVien>
+    <TongTien>200000</TongTien>
+  </HOADON>
+</HOADONES>

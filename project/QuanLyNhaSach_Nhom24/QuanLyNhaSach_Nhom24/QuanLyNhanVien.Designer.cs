@@ -61,6 +61,7 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDongBoDuLieu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -240,7 +241,7 @@
             this.đăngXuấtToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1054, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1054, 30);
             this.menuStrip1.TabIndex = 37;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -255,7 +256,7 @@
             this.quảnLýNhàCungCấpToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.management;
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(105, 26);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             // 
             // quảnLýSáchToolStripMenuItem
@@ -310,21 +311,21 @@
             // 
             this.liênHệToolStripMenuItem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.telephone;
             this.liênHệToolStripMenuItem.Name = "liênHệToolStripMenuItem";
-            this.liênHệToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.liênHệToolStripMenuItem.Size = new System.Drawing.Size(90, 26);
             this.liênHệToolStripMenuItem.Text = "Liên hệ";
             // 
             // giớiThiệuToolStripMenuItem
             // 
             this.giớiThiệuToolStripMenuItem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.welcome;
             this.giớiThiệuToolStripMenuItem.Name = "giớiThiệuToolStripMenuItem";
-            this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
+            this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(107, 26);
             this.giớiThiệuToolStripMenuItem.Text = "Giới thiệu";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.cancel;
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(111, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -345,7 +346,7 @@
             // btnXoa
             // 
             this.btnXoa.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.delete;
-            this.btnXoa.Location = new System.Drawing.Point(823, 313);
+            this.btnXoa.Location = new System.Drawing.Point(823, 278);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 52);
             this.btnXoa.TabIndex = 44;
@@ -355,7 +356,7 @@
             // btnSua
             // 
             this.btnSua.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.update;
-            this.btnSua.Location = new System.Drawing.Point(823, 241);
+            this.btnSua.Location = new System.Drawing.Point(823, 206);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(88, 50);
             this.btnSua.TabIndex = 43;
@@ -365,7 +366,7 @@
             // btnThem
             // 
             this.btnThem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.add1;
-            this.btnThem.Location = new System.Drawing.Point(823, 168);
+            this.btnThem.Location = new System.Drawing.Point(823, 133);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(88, 50);
             this.btnThem.TabIndex = 42;
@@ -383,11 +384,23 @@
             this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;
             // 
+            // btnDongBoDuLieu
+            // 
+            this.btnDongBoDuLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDongBoDuLieu.Location = new System.Drawing.Point(823, 344);
+            this.btnDongBoDuLieu.Name = "btnDongBoDuLieu";
+            this.btnDongBoDuLieu.Size = new System.Drawing.Size(88, 52);
+            this.btnDongBoDuLieu.TabIndex = 48;
+            this.btnDongBoDuLieu.Text = "Đồng bộ XML - SQL";
+            this.btnDongBoDuLieu.UseVisualStyleBackColor = true;
+            this.btnDongBoDuLieu.Click += new System.EventHandler(this.btnDongBoDuLieu_Click);
+            // 
             // QuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 666);
+            this.Controls.Add(this.btnDongBoDuLieu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewNhanVien);
             this.Controls.Add(this.btnTimKiem);
@@ -448,5 +461,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnDongBoDuLieu;
     }
 }

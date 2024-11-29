@@ -14,3 +14,5 @@ K:\Visual Studio 2022\BaoCaoCuoiKy_Nhom24_QuanLyNhaSach\project\QuanLyNhaSach_Nh
 K:\Visual Studio 2022\BaoCaoCuoiKy_Nhom24_QuanLyNhaSach\project\QuanLyNhaSach_Nhom24\QuanLyNhaSach_Nhom24\obj\Debug\QuanLyNhaSach_Nhom24.exe
 K:\Visual Studio 2022\BaoCaoCuoiKy_Nhom24_QuanLyNhaSach\project\QuanLyNhaSach_Nhom24\QuanLyNhaSach_Nhom24\obj\Debug\QuanLyNhaSach_Nhom24.pdb
 K:\Visual Studio 2022\BaoCaoCuoiKy_Nhom24_QuanLyNhaSach\project\QuanLyNhaSach_Nhom24\QuanLyNhaSach_Nhom24\bin\Debug\QuanLyNhaSach_Nhom24.pdb
+K:\Visual Studio 2022\BaoCaoCuoiKy_Nhom24_QuanLyNhaSach\project\QuanLyNhaSach_Nhom24\QuanLyNhaSach_Nhom24\obj\Debug\QuanLyNhaSach_Nhom24.QuanLyHoaDon.resources
+K:\Visual Studio 2022\BaoCaoCuoiKy_Nhom24_QuanLyNhaSach\project\QuanLyNhaSach_Nhom24\QuanLyNhaSach_Nhom24\obj\Debug\QuanLyNhaSach_Nhom24.QuanLyPhieuNhap.resources

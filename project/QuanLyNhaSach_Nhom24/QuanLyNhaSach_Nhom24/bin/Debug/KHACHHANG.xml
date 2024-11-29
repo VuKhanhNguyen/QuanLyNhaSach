@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KHACHHANGES>
+  <KHACHHANG>
+    <IDKhachHang>KH001</IDKhachHang>
+    <HoTen>Nguyễn Vũ Khanh</HoTen>
+    <DiaChi>Cẩm Lệ Đà Nẵng</DiaChi>
+    <SoDienThoai>0795605214</SoDienThoai>
+    <Email>nguyenvukhanh392@gmail.com</Email>
+  </KHACHHANG>
+  <SACH>
+    <IDKhachHang>KH002</IDKhachHang>
+    <HoTen>Nguyễn Vũ Khanhh</HoTen>
+    <DiaChi>Cẩm Lệ Đà Nẵng</DiaChi>
+    <SoDienThoai>0795605214</SoDienThoai>
+    <Email>nguyenvukhanh392@gmail.com</Email>
+  </SACH>
+  <KHACHHANG>
+    <IDKhachHang>KH002</IDKhachHang>
+    <HoTen>Nguyễn Vũ Khanhh</HoTen>
+    <DiaChi>Cẩm Lệ Đà Nẵng</DiaChi>
+    <SoDienThoai>0795605214</SoDienThoai>
+    <Email>nguyenvukhanh392@gmail.com</Email>
+  </KHACHHANG>
+</KHACHHANGES>

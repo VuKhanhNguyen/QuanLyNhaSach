@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NHANVIENES>
+  <NHANVIEN>
+    <IDNhanVien>NV000</IDNhanVien>
+    <HoTen>ADMIN</HoTen>
+    <SoDienThoai>0795605214</SoDienThoai>
+    <TaiKhoan>admin</TaiKhoan>
+    <MatKhau>admin</MatKhau>
+  </NHANVIEN>
+  <NHANVIEN>
+    <IDNhanVien>NV001</IDNhanVien>
+    <HoTen>Nguyễn Vũ Khanh</HoTen>
+    <SoDienThoai>0795605214</SoDienThoai>
+    <TaiKhoan>nvthungan</TaiKhoan>
+    <MatKhau>nvthungan</MatKhau>
+  </NHANVIEN>
+  <NHANVIEN>
+    <IDNhanVien>NV002</IDNhanVien>
+    <HoTen>Nguyễn Vũ Khanh</HoTen>
+    <SoDienThoai>0795605214</SoDienThoai>
+    <TaiKhoan>nvthungan2</TaiKhoan>
+    <MatKhau>nvthungan</MatKhau>
+  </NHANVIEN>
+</NHANVIENES>
