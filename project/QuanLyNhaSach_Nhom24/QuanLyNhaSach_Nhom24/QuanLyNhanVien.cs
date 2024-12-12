@@ -239,16 +239,33 @@ namespace QuanLyNhaSach_Nhom24
             if (File.Exists(xmlFilePath))
             {
                 XElement nhanvienXml = XElement.Load(xmlFilePath);
-                var result = nhanvienXml.Elements("NHANVIEN").FirstOrDefault(x => x.Element("IDNhanVien")?.Value == tbTimKiem.Text);
 
-                if (result != null)
+                // Xóa dữ liệu cũ trong dataGridViewNhanVien
+                dataGridViewNhanVien.Rows.Clear();
+
+                // Lọc nhân viên theo chuỗi nhập vào
+                var matchedEmployees = nhanvienXml.Elements("NHANVIEN")
+                    .Where(nv =>
+                        nv.Element("IDNhanVien")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        nv.Element("HoTen")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        nv.Element("SoDienThoai")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        nv.Element("TaiKhoan")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+
+                if (matchedEmployees.Any())
                 {
-                    DisplayEmployeeData(result);
+                    foreach (XElement nv in matchedEmployees)
+                    {
+                        int rowIndex = dataGridViewNhanVien.Rows.Add();
+                        dataGridViewNhanVien.Rows[rowIndex].Cells["IDNhanVien"].Value = nv.Element("IDNhanVien")?.Value;
+                        dataGridViewNhanVien.Rows[rowIndex].Cells["HoTen"].Value = nv.Element("HoTen")?.Value;
+                        dataGridViewNhanVien.Rows[rowIndex].Cells["SoDienThoai"].Value = nv.Element("SoDienThoai")?.Value;
+                        dataGridViewNhanVien.Rows[rowIndex].Cells["TaiKhoan"].Value = nv.Element("TaiKhoan")?.Value;
+                    }
                     MessageBox.Show("Đã tìm thấy nhân viên!");
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy nhân viên với mã nhân viên đã nhập.");
+                    MessageBox.Show("Không tìm thấy nhân viên với thông tin đã nhập.");
                 }
             }
             else

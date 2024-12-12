@@ -145,7 +145,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
             this.groupBox1.Controls.Add(this.btnLamMoi);
             this.groupBox1.Controls.Add(this.tbSoDienThoai);
             this.groupBox1.Controls.Add(this.label7);
@@ -271,7 +271,7 @@
             this.dataGridViewKhachHang.Name = "dataGridViewKhachHang";
             this.dataGridViewKhachHang.RowHeadersWidth = 51;
             this.dataGridViewKhachHang.RowTemplate.Height = 24;
-            this.dataGridViewKhachHang.Size = new System.Drawing.Size(1030, 173);
+            this.dataGridViewKhachHang.Size = new System.Drawing.Size(1030, 254);
             this.dataGridViewKhachHang.TabIndex = 27;
             this.dataGridViewKhachHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSach_CellContentClick);
             // 
@@ -379,7 +379,7 @@
             this.pictureBox1.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.bookstoreWallpaper2;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1054, 666);
+            this.pictureBox1.Size = new System.Drawing.Size(1054, 747);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;
@@ -399,7 +399,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 666);
+            this.ClientSize = new System.Drawing.Size(1054, 747);
             this.Controls.Add(this.btnDongBoDuLieu);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.label11);

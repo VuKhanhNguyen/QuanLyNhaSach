@@ -177,7 +177,7 @@
             this.pictureBox1.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.bookstoreWallpaper2;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1054, 814);
+            this.pictureBox1.Size = new System.Drawing.Size(1054, 826);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 43;
             this.pictureBox1.TabStop = false;
@@ -198,9 +198,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
             this.groupBox1.Controls.Add(this.dtpNgayLapHD);
             this.groupBox1.Controls.Add(this.cbIDSach);
+            this.groupBox1.Controls.Add(this.btnThem);
+            this.groupBox1.Controls.Add(this.btnSua);
+            this.groupBox1.Controls.Add(this.btnXoa);
+            this.groupBox1.Controls.Add(this.btnDongBoDuLieu);
             this.groupBox1.Controls.Add(this.cbIDKhachHang);
             this.groupBox1.Controls.Add(this.btnLamMoi);
             this.groupBox1.Controls.Add(this.cbIDNhanVien);
@@ -215,16 +219,16 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tbIDHoaDon);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(65, 112);
+            this.groupBox1.Location = new System.Drawing.Point(12, 112);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(806, 226);
+            this.groupBox1.Size = new System.Drawing.Size(1030, 253);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sách";
             // 
             // dtpNgayLapHD
             // 
-            this.dtpNgayLapHD.Location = new System.Drawing.Point(584, 39);
+            this.dtpNgayLapHD.Location = new System.Drawing.Point(626, 36);
             this.dtpNgayLapHD.Name = "dtpNgayLapHD";
             this.dtpNgayLapHD.Size = new System.Drawing.Size(202, 27);
             this.dtpNgayLapHD.TabIndex = 29;
@@ -232,7 +236,7 @@
             // cbIDSach
             // 
             this.cbIDSach.FormattingEnabled = true;
-            this.cbIDSach.Location = new System.Drawing.Point(195, 124);
+            this.cbIDSach.Location = new System.Drawing.Point(237, 121);
             this.cbIDSach.Name = "cbIDSach";
             this.cbIDSach.Size = new System.Drawing.Size(202, 28);
             this.cbIDSach.TabIndex = 28;
@@ -240,7 +244,7 @@
             // cbIDKhachHang
             // 
             this.cbIDKhachHang.FormattingEnabled = true;
-            this.cbIDKhachHang.Location = new System.Drawing.Point(196, 82);
+            this.cbIDKhachHang.Location = new System.Drawing.Point(238, 79);
             this.cbIDKhachHang.Name = "cbIDKhachHang";
             this.cbIDKhachHang.Size = new System.Drawing.Size(201, 28);
             this.cbIDKhachHang.TabIndex = 27;
@@ -250,7 +254,7 @@
             this.btnLamMoi.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.ForeColor = System.Drawing.Color.Green;
-            this.btnLamMoi.Location = new System.Drawing.Point(680, 170);
+            this.btnLamMoi.Location = new System.Drawing.Point(722, 167);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(106, 33);
             this.btnLamMoi.TabIndex = 26;
@@ -261,7 +265,7 @@
             // cbIDNhanVien
             // 
             this.cbIDNhanVien.FormattingEnabled = true;
-            this.cbIDNhanVien.Location = new System.Drawing.Point(195, 168);
+            this.cbIDNhanVien.Location = new System.Drawing.Point(237, 165);
             this.cbIDNhanVien.Name = "cbIDNhanVien";
             this.cbIDNhanVien.Size = new System.Drawing.Size(202, 28);
             this.cbIDNhanVien.TabIndex = 23;
@@ -269,7 +273,7 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(423, 85);
+            this.label8.Location = new System.Drawing.Point(465, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(155, 23);
             this.label8.TabIndex = 22;
@@ -278,7 +282,7 @@
             // 
             // tbSoLuong
             // 
-            this.tbSoLuong.Location = new System.Drawing.Point(584, 83);
+            this.tbSoLuong.Location = new System.Drawing.Point(626, 80);
             this.tbSoLuong.Name = "tbSoLuong";
             this.tbSoLuong.Size = new System.Drawing.Size(202, 27);
             this.tbSoLuong.TabIndex = 21;
@@ -286,7 +290,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(425, 129);
+            this.label9.Location = new System.Drawing.Point(467, 126);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(153, 23);
             this.label9.TabIndex = 20;
@@ -295,7 +299,7 @@
             // 
             // tbDonGia
             // 
-            this.tbDonGia.Location = new System.Drawing.Point(584, 127);
+            this.tbDonGia.Location = new System.Drawing.Point(626, 124);
             this.tbDonGia.Name = "tbDonGia";
             this.tbDonGia.Size = new System.Drawing.Size(202, 27);
             this.tbDonGia.TabIndex = 19;
@@ -303,7 +307,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(422, 43);
+            this.label6.Location = new System.Drawing.Point(464, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(156, 23);
             this.label6.TabIndex = 16;
@@ -313,7 +317,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 170);
+            this.label4.Location = new System.Drawing.Point(52, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(179, 23);
             this.label4.TabIndex = 12;
@@ -323,7 +327,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 129);
+            this.label5.Location = new System.Drawing.Point(50, 126);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 23);
             this.label5.TabIndex = 10;
@@ -333,7 +337,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 84);
+            this.label3.Location = new System.Drawing.Point(52, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(180, 23);
             this.label3.TabIndex = 8;
@@ -343,7 +347,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 43);
+            this.label1.Location = new System.Drawing.Point(52, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(156, 23);
             this.label1.TabIndex = 6;
@@ -352,7 +356,7 @@
             // 
             // tbIDHoaDon
             // 
-            this.tbIDHoaDon.Location = new System.Drawing.Point(195, 41);
+            this.tbIDHoaDon.Location = new System.Drawing.Point(237, 38);
             this.tbIDHoaDon.Name = "tbIDHoaDon";
             this.tbIDHoaDon.Size = new System.Drawing.Size(202, 27);
             this.tbIDHoaDon.TabIndex = 4;
@@ -360,29 +364,29 @@
             // dataGridViewHoaDon
             // 
             this.dataGridViewHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewHoaDon.Location = new System.Drawing.Point(12, 403);
+            this.dataGridViewHoaDon.Location = new System.Drawing.Point(12, 441);
             this.dataGridViewHoaDon.Name = "dataGridViewHoaDon";
             this.dataGridViewHoaDon.RowHeadersWidth = 51;
             this.dataGridViewHoaDon.RowTemplate.Height = 24;
-            this.dataGridViewHoaDon.Size = new System.Drawing.Size(1030, 169);
+            this.dataGridViewHoaDon.Size = new System.Drawing.Size(1030, 150);
             this.dataGridViewHoaDon.TabIndex = 46;
             this.dataGridViewHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewHoaDon_CellContentClick);
             // 
             // dataGridViewChiTietHoaDon
             // 
             this.dataGridViewChiTietHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewChiTietHoaDon.Location = new System.Drawing.Point(12, 635);
+            this.dataGridViewChiTietHoaDon.Location = new System.Drawing.Point(12, 655);
             this.dataGridViewChiTietHoaDon.Name = "dataGridViewChiTietHoaDon";
             this.dataGridViewChiTietHoaDon.RowHeadersWidth = 51;
             this.dataGridViewChiTietHoaDon.RowTemplate.Height = 24;
-            this.dataGridViewChiTietHoaDon.Size = new System.Drawing.Size(1030, 163);
+            this.dataGridViewChiTietHoaDon.Size = new System.Drawing.Size(1030, 156);
             this.dataGridViewChiTietHoaDon.TabIndex = 47;
             this.dataGridViewChiTietHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChiTietHoaDon_CellContentClick);
             // 
             // btnDongBoDuLieu
             // 
             this.btnDongBoDuLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDongBoDuLieu.Location = new System.Drawing.Point(902, 304);
+            this.btnDongBoDuLieu.Location = new System.Drawing.Point(869, 179);
             this.btnDongBoDuLieu.Name = "btnDongBoDuLieu";
             this.btnDongBoDuLieu.Size = new System.Drawing.Size(88, 52);
             this.btnDongBoDuLieu.TabIndex = 52;
@@ -393,7 +397,7 @@
             // btnXoa
             // 
             this.btnXoa.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.delete;
-            this.btnXoa.Location = new System.Drawing.Point(902, 238);
+            this.btnXoa.Location = new System.Drawing.Point(869, 121);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 52);
             this.btnXoa.TabIndex = 51;
@@ -403,7 +407,7 @@
             // btnSua
             // 
             this.btnSua.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.update;
-            this.btnSua.Location = new System.Drawing.Point(902, 166);
+            this.btnSua.Location = new System.Drawing.Point(869, 67);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(88, 50);
             this.btnSua.TabIndex = 50;
@@ -413,7 +417,7 @@
             // btnThem
             // 
             this.btnThem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.add1;
-            this.btnThem.Location = new System.Drawing.Point(902, 93);
+            this.btnThem.Location = new System.Drawing.Point(869, 13);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(88, 50);
             this.btnThem.TabIndex = 49;
@@ -424,7 +428,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.label7.Location = new System.Drawing.Point(389, 351);
+            this.label7.Location = new System.Drawing.Point(388, 389);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(275, 49);
             this.label7.TabIndex = 53;
@@ -435,7 +439,7 @@
             // 
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.label10.Location = new System.Drawing.Point(290, 575);
+            this.label10.Location = new System.Drawing.Point(294, 603);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(465, 49);
             this.label10.TabIndex = 54;
@@ -446,13 +450,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 814);
+            this.ClientSize = new System.Drawing.Size(1054, 826);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnDongBoDuLieu);
-            this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.btnThem);
             this.Controls.Add(this.dataGridViewChiTietHoaDon);
             this.Controls.Add(this.dataGridViewHoaDon);
             this.Controls.Add(this.groupBox1);

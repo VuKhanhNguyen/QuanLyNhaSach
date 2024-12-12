@@ -162,6 +162,13 @@ namespace QuanLyNhaSach_Nhom24
             }
         }
 
+
+
+
+
+
+        //=============================================================Sự kiện click======================================================================//
+
         private void quảnLýSáchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -318,19 +325,41 @@ namespace QuanLyNhaSach_Nhom24
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+         
             if (File.Exists(xmlFilePath))
             {
                 XElement sachXml = XElement.Load(xmlFilePath);
-                var result = sachXml.Elements("SACH").FirstOrDefault(x => x.Element("IDSach")?.Value == tbTimKiem.Text);
 
-                if (result != null)
+                // Xóa dữ liệu cũ trong dataGridViewSach
+                dataGridViewSach.Rows.Clear();
+
+                // Lọc sách theo chuỗi nhập vào (không phân biệt chữ hoa/thường)
+                var matchedBooks = sachXml.Elements("SACH")
+                    .Where(sach =>
+                sach.Element("IDSach")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                sach.Element("TenSach")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                sach.Element("TacGia")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+
+                if (matchedBooks.Any())
                 {
-                    DisplayBookData(result);
+                    foreach (XElement sach in matchedBooks)
+                    {
+                        int rowIndex = dataGridViewSach.Rows.Add();
+                        dataGridViewSach.Rows[rowIndex].Cells["IDSach"].Value = sach.Element("IDSach")?.Value;
+                        dataGridViewSach.Rows[rowIndex].Cells["TenSach"].Value = sach.Element("TenSach")?.Value;
+                        dataGridViewSach.Rows[rowIndex].Cells["TacGia"].Value = sach.Element("TacGia")?.Value;
+                        dataGridViewSach.Rows[rowIndex].Cells["IDTheLoai"].Value = sach.Element("IDTheLoai")?.Value;
+                        dataGridViewSach.Rows[rowIndex].Cells["NhaXuatBan"].Value = sach.Element("NhaXuatBan")?.Value;
+                        dataGridViewSach.Rows[rowIndex].Cells["NamXuatBan"].Value = sach.Element("NamXuatBan")?.Value;
+                        dataGridViewSach.Rows[rowIndex].Cells["GiaNhap"].Value = sach.Element("GiaNhap")?.Value;
+                        dataGridViewSach.Rows[rowIndex].Cells["GiaBan"].Value = sach.Element("GiaBan")?.Value;
+                        dataGridViewSach.Rows[rowIndex].Cells["SoLuongTon"].Value = sach.Element("SoLuongTon")?.Value;
+                    }
                     MessageBox.Show("Đã tìm thấy sách!");
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy sách với mã sách đã nhập.");
+                    MessageBox.Show("Không tìm thấy sách với thông tin đã nhập.");
                 }
             }
             else
@@ -388,7 +417,7 @@ namespace QuanLyNhaSach_Nhom24
         }
 
 
-
+        //=============================================================Đồng bộ======================================================================//
         private void DongBoDuLieuTuXML()
         {
             if (!File.Exists(xmlFilePath))

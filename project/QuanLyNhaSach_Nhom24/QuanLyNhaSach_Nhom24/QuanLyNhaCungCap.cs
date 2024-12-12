@@ -266,16 +266,35 @@ namespace QuanLyNhaSach_Nhom24
             if (File.Exists(xmlFilePath))
             {
                 XElement nhacungcapXml = XElement.Load(xmlFilePath);
-                var result = nhacungcapXml.Elements("NHACUNGCAP").FirstOrDefault(x => x.Element("IDNhaCungCap")?.Value == tbTimKiem.Text);
 
-                if (result != null)
+                // Xóa dữ liệu cũ trong dataGridViewNhaCungCap
+                dataGridViewNhaCungCap.Rows.Clear();
+
+                // Lọc nhà cung cấp theo chuỗi nhập vào
+                var matchedSuppliers = nhacungcapXml.Elements("NHACUNGCAP")
+                    .Where(ncc =>
+                        ncc.Element("IDNhaCungCap")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        ncc.Element("TenNhaCungCap")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        ncc.Element("DiaChi")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        ncc.Element("SoDienThoai")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        ncc.Element("Email")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+
+                if (matchedSuppliers.Any())
                 {
-                    DisplayCustomerData(result);
+                    foreach (XElement ncc in matchedSuppliers)
+                    {
+                        int rowIndex = dataGridViewNhaCungCap.Rows.Add();
+                        dataGridViewNhaCungCap.Rows[rowIndex].Cells["IDNhaCungCap"].Value = ncc.Element("IDNhaCungCap")?.Value;
+                        dataGridViewNhaCungCap.Rows[rowIndex].Cells["TenNhaCungCap"].Value = ncc.Element("TenNhaCungCap")?.Value;
+                        dataGridViewNhaCungCap.Rows[rowIndex].Cells["DiaChi"].Value = ncc.Element("DiaChi")?.Value;
+                        dataGridViewNhaCungCap.Rows[rowIndex].Cells["SoDienThoai"].Value = ncc.Element("SoDienThoai")?.Value;
+                        dataGridViewNhaCungCap.Rows[rowIndex].Cells["Email"].Value = ncc.Element("Email")?.Value;
+                    }
                     MessageBox.Show("Đã tìm thấy nhà cung cấp!");
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy nhà cung cấp với mã nhà cung cấp đã nhập.");
+                    MessageBox.Show("Không tìm thấy nhà cung cấp với thông tin đã nhập.");
                 }
             }
             else

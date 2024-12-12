@@ -166,7 +166,7 @@
             this.dataGridViewNhanVien.Name = "dataGridViewNhanVien";
             this.dataGridViewNhanVien.RowHeadersWidth = 51;
             this.dataGridViewNhanVien.RowTemplate.Height = 24;
-            this.dataGridViewNhanVien.Size = new System.Drawing.Size(1030, 173);
+            this.dataGridViewNhanVien.Size = new System.Drawing.Size(1030, 238);
             this.dataGridViewNhanVien.TabIndex = 38;
             this.dataGridViewNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSach_CellContentClick);
             // 
@@ -211,7 +211,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
             this.groupBox1.Controls.Add(this.btnLamMoi);
             this.groupBox1.Controls.Add(this.tbTaiKhoan);
             this.groupBox1.Controls.Add(this.label7);
@@ -241,7 +241,7 @@
             this.đăngXuấtToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1054, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1054, 28);
             this.menuStrip1.TabIndex = 37;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -256,7 +256,7 @@
             this.quảnLýNhàCungCấpToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.management;
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(105, 26);
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             // 
             // quảnLýSáchToolStripMenuItem
@@ -311,21 +311,21 @@
             // 
             this.liênHệToolStripMenuItem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.telephone;
             this.liênHệToolStripMenuItem.Name = "liênHệToolStripMenuItem";
-            this.liênHệToolStripMenuItem.Size = new System.Drawing.Size(90, 26);
+            this.liênHệToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.liênHệToolStripMenuItem.Text = "Liên hệ";
             // 
             // giớiThiệuToolStripMenuItem
             // 
             this.giớiThiệuToolStripMenuItem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.welcome;
             this.giớiThiệuToolStripMenuItem.Name = "giớiThiệuToolStripMenuItem";
-            this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(107, 26);
+            this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
             this.giớiThiệuToolStripMenuItem.Text = "Giới thiệu";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.cancel;
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(111, 26);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -379,7 +379,7 @@
             this.pictureBox1.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.bookstoreWallpaper2;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1054, 666);
+            this.pictureBox1.Size = new System.Drawing.Size(1054, 731);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;
@@ -399,7 +399,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 666);
+            this.ClientSize = new System.Drawing.Size(1054, 731);
             this.Controls.Add(this.btnDongBoDuLieu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewNhanVien);

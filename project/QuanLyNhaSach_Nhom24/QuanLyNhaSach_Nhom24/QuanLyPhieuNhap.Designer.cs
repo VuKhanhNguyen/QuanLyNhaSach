@@ -78,7 +78,7 @@
             // 
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.label10.Location = new System.Drawing.Point(290, 575);
+            this.label10.Location = new System.Drawing.Point(288, 656);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(465, 49);
             this.label10.TabIndex = 66;
@@ -89,7 +89,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.label7.Location = new System.Drawing.Point(389, 351);
+            this.label7.Location = new System.Drawing.Point(389, 372);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(275, 49);
             this.label7.TabIndex = 65;
@@ -140,21 +140,21 @@
             // dataGridViewChiTietPhieuNhap
             // 
             this.dataGridViewChiTietPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewChiTietPhieuNhap.Location = new System.Drawing.Point(12, 635);
+            this.dataGridViewChiTietPhieuNhap.Location = new System.Drawing.Point(12, 708);
             this.dataGridViewChiTietPhieuNhap.Name = "dataGridViewChiTietPhieuNhap";
             this.dataGridViewChiTietPhieuNhap.RowHeadersWidth = 51;
             this.dataGridViewChiTietPhieuNhap.RowTemplate.Height = 24;
-            this.dataGridViewChiTietPhieuNhap.Size = new System.Drawing.Size(1030, 163);
+            this.dataGridViewChiTietPhieuNhap.Size = new System.Drawing.Size(1030, 220);
             this.dataGridViewChiTietPhieuNhap.TabIndex = 60;
             // 
             // dataGridViewPhieuNhap
             // 
             this.dataGridViewPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPhieuNhap.Location = new System.Drawing.Point(12, 403);
+            this.dataGridViewPhieuNhap.Location = new System.Drawing.Point(12, 424);
             this.dataGridViewPhieuNhap.Name = "dataGridViewPhieuNhap";
             this.dataGridViewPhieuNhap.RowHeadersWidth = 51;
             this.dataGridViewPhieuNhap.RowTemplate.Height = 24;
-            this.dataGridViewPhieuNhap.Size = new System.Drawing.Size(1030, 169);
+            this.dataGridViewPhieuNhap.Size = new System.Drawing.Size(1030, 217);
             this.dataGridViewPhieuNhap.TabIndex = 59;
             this.dataGridViewPhieuNhap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPhieuNhap_CellContentClick);
             // 
@@ -196,7 +196,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
             this.groupBox1.Controls.Add(this.dtpNgayNhap);
             this.groupBox1.Controls.Add(this.cbIDSach);
             this.groupBox1.Controls.Add(this.cbIDNhaCungCap);
@@ -423,7 +423,7 @@
             this.pictureBox1.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.bookstoreWallpaper2;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1054, 814);
+            this.pictureBox1.Size = new System.Drawing.Size(1054, 940);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 56;
             this.pictureBox1.TabStop = false;
@@ -461,7 +461,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 814);
+            this.ClientSize = new System.Drawing.Size(1054, 940);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);

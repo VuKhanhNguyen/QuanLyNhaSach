@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <HOADONES>
-    <HOADON>
+  <HOADON>
     <IDHoaDon>HD002</IDHoaDon>
     <NgayLapHD>2024-11-09 17:37:22</NgayLapHD>
     <IDKhachHang>KH002</IDKhachHang>
@@ -9,9 +9,9 @@
   </HOADON>
   <HOADON>
     <IDHoaDon>HD003</IDHoaDon>
-    <NgayLapHD>2024-11-09 17:37:22</NgayLapHD>
-    <IDKhachHang>KH002</IDKhachHang>
-    <IDNhanVien>NV002</IDNhanVien>
-    <TongTien>200000</TongTien>
+    <NgayLapHD>2024-11-20 17:37:22</NgayLapHD>
+    <IDKhachHang>KH001</IDKhachHang>
+    <IDNhanVien>NV001</IDNhanVien>
+    <TongTien>220000</TongTien>
   </HOADON>
 </HOADONES>

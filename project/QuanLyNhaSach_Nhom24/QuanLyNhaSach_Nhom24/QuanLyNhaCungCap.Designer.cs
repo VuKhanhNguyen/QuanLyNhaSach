@@ -117,7 +117,7 @@
             // btnSua
             // 
             this.btnSua.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.update;
-            this.btnSua.Location = new System.Drawing.Point(823, 205);
+            this.btnSua.Location = new System.Drawing.Point(648, 83);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(88, 50);
             this.btnSua.TabIndex = 54;
@@ -127,7 +127,7 @@
             // btnThem
             // 
             this.btnThem.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.add1;
-            this.btnThem.Location = new System.Drawing.Point(823, 132);
+            this.btnThem.Location = new System.Drawing.Point(648, 16);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(88, 50);
             this.btnThem.TabIndex = 53;
@@ -199,7 +199,7 @@
             // btnXoa
             // 
             this.btnXoa.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.delete;
-            this.btnXoa.Location = new System.Drawing.Point(823, 277);
+            this.btnXoa.Location = new System.Drawing.Point(648, 158);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 52);
             this.btnXoa.TabIndex = 55;
@@ -227,28 +227,32 @@
             this.dataGridViewNhaCungCap.Name = "dataGridViewNhaCungCap";
             this.dataGridViewNhaCungCap.RowHeadersWidth = 51;
             this.dataGridViewNhaCungCap.RowTemplate.Height = 24;
-            this.dataGridViewNhaCungCap.Size = new System.Drawing.Size(1030, 173);
+            this.dataGridViewNhaCungCap.Size = new System.Drawing.Size(1030, 249);
             this.dataGridViewNhaCungCap.TabIndex = 49;
             this.dataGridViewNhaCungCap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSach_CellContentClick);
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
+            this.groupBox1.Controls.Add(this.btnDongBoDuLieu);
             this.groupBox1.Controls.Add(this.btnLamMoi);
             this.groupBox1.Controls.Add(this.tbSoDienThoai);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.tbEmail);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.btnXoa);
+            this.groupBox1.Controls.Add(this.btnSua);
             this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.btnThem);
             this.groupBox1.Controls.Add(this.tbDiaChi);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tbTenNhaCungCap);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tbIDNhaCungCap);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(184, 125);
+            this.groupBox1.Location = new System.Drawing.Point(143, 125);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(620, 271);
+            this.groupBox1.Size = new System.Drawing.Size(753, 296);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin khách hàng";
@@ -379,7 +383,7 @@
             this.pictureBox1.Image = global::QuanLyNhaSach_Nhom24.Properties.Resources.bookstoreWallpaper2;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1054, 666);
+            this.pictureBox1.Size = new System.Drawing.Size(1054, 742);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 52;
             this.pictureBox1.TabStop = false;
@@ -387,7 +391,7 @@
             // btnDongBoDuLieu
             // 
             this.btnDongBoDuLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDongBoDuLieu.Location = new System.Drawing.Point(823, 344);
+            this.btnDongBoDuLieu.Location = new System.Drawing.Point(648, 227);
             this.btnDongBoDuLieu.Name = "btnDongBoDuLieu";
             this.btnDongBoDuLieu.Size = new System.Drawing.Size(88, 52);
             this.btnDongBoDuLieu.TabIndex = 59;
@@ -399,15 +403,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 666);
-            this.Controls.Add(this.btnDongBoDuLieu);
+            this.ClientSize = new System.Drawing.Size(1054, 742);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tbTimKiem);
-            this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.dataGridViewNhaCungCap);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);

@@ -44,6 +44,7 @@ namespace QuanLyNhaSach_Nhom24
             // Tải dữ liệu vào DataGridView
             LoadHoaDonData();
             LoadChiTietHoaDonData();
+            
         }
 
 
@@ -199,7 +200,7 @@ namespace QuanLyNhaSach_Nhom24
             }
 
             XElement chiTietHoaDonXml = XElement.Load(chiTietHoaDonFilePath);
-
+            
             foreach (XElement chiTietHoaDon in chiTietHoaDonXml.Elements("CHITIETHOADON"))
             {
                 int rowIndex = dataGridViewChiTietHoaDon.Rows.Add();
@@ -210,6 +211,7 @@ namespace QuanLyNhaSach_Nhom24
                 dataGridViewChiTietHoaDon.Rows[rowIndex].Cells["ThanhTien"].Value = chiTietHoaDon.Element("ThanhTien")?.Value;
             }
         }
+
 
         private void QuanLyHoaDon_Load(object sender, EventArgs e)
         {
@@ -421,8 +423,9 @@ namespace QuanLyNhaSach_Nhom24
                 tbIDHoaDon.Text = row.Cells["IDHoaDon"].Value.ToString();
                 dtpNgayLapHD.Value = DateTime.Parse(row.Cells["NgayLapHD"].Value.ToString());
                 cbIDKhachHang.SelectedItem = row.Cells["IDKhachHang"].Value.ToString(); 
-                cbIDNhanVien.SelectedItem = row.Cells["IDNhanVien"].Value.ToString(); 
+                cbIDNhanVien.SelectedItem = row.Cells["IDNhanVien"].Value.ToString();
                 //tbTongTien.Text = row.Cells["TongTien"].Value.ToString();
+                
             }
         }
 

@@ -229,16 +229,35 @@ namespace QuanLyNhaSach_Nhom24
             if (File.Exists(xmlFilePath))
             {
                 XElement khachhangXml = XElement.Load(xmlFilePath);
-                var result = khachhangXml.Elements("KHACHHANG").FirstOrDefault(x => x.Element("IDKhachHang")?.Value == tbTimKiem.Text);
 
-                if (result != null)
+                // Xóa dữ liệu cũ trong dataGridViewKhachHang
+                dataGridViewKhachHang.Rows.Clear();
+
+                // Lọc khách hàng theo chuỗi nhập vào
+                var matchedCustomers = khachhangXml.Elements("KHACHHANG")
+                    .Where(kh =>
+                        kh.Element("IDKhachHang")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        kh.Element("HoTen")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        kh.Element("DiaChi")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        kh.Element("SoDienThoai")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        kh.Element("Email")?.Value.IndexOf(tbTimKiem.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+
+                if (matchedCustomers.Any())
                 {
-                    DisplayCustomerData(result);
+                    foreach (XElement kh in matchedCustomers)
+                    {
+                        int rowIndex = dataGridViewKhachHang.Rows.Add();
+                        dataGridViewKhachHang.Rows[rowIndex].Cells["IDKhachHang"].Value = kh.Element("IDKhachHang")?.Value;
+                        dataGridViewKhachHang.Rows[rowIndex].Cells["HoTen"].Value = kh.Element("HoTen")?.Value;
+                        dataGridViewKhachHang.Rows[rowIndex].Cells["DiaChi"].Value = kh.Element("DiaChi")?.Value;
+                        dataGridViewKhachHang.Rows[rowIndex].Cells["SoDienThoai"].Value = kh.Element("SoDienThoai")?.Value;
+                        dataGridViewKhachHang.Rows[rowIndex].Cells["Email"].Value = kh.Element("Email")?.Value;
+                    }
                     MessageBox.Show("Đã tìm thấy khách hàng!");
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy khách hàng với mã khách hàng đã nhập.");
+                    MessageBox.Show("Không tìm thấy khách hàng với thông tin đã nhập.");
                 }
             }
             else

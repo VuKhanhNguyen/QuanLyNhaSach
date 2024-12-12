@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <CHITIETHOADONES>
-    <CHITIETHOADON>
+  <CHITIETHOADON>
     <IDHoaDon>HD002</IDHoaDon>
     <IDSach>S002</IDSach>
     <SoLuong>10</SoLuong>
@@ -9,9 +9,9 @@
   </CHITIETHOADON>
   <CHITIETHOADON>
     <IDHoaDon>HD003</IDHoaDon>
-    <IDSach>S002</IDSach>
-    <SoLuong>10</SoLuong>
+    <IDSach>S004</IDSach>
+    <SoLuong>11</SoLuong>
     <DonGia>20000</DonGia>
-    <ThanhTien>200000</ThanhTien>
+    <ThanhTien>220000</ThanhTien>
   </CHITIETHOADON>
 </CHITIETHOADONES>

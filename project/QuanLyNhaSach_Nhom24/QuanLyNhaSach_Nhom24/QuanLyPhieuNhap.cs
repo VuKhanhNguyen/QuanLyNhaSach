@@ -506,12 +506,174 @@ namespace QuanLyNhaSach_Nhom24
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-           
+            try
+            {
+                // Kiểm tra nếu chưa chọn hóa đơn nào
+                if (string.IsNullOrEmpty(tbIDPhieuNhap.Text))
+                {
+                    MessageBox.Show("Vui lòng chọn phiếu nhập cần xóa.");
+                    return;
+                }
+
+                string idPhieuNhap = tbIDPhieuNhap.Text;
+
+                // Kiểm tra và xử lý file HOADON.xml
+                if (File.Exists(phieuNhapFilePath))
+                {
+                    XElement phieuNhapXml = XElement.Load(phieuNhapFilePath);
+
+                    // Tìm và xóa hóa đơn trong HOADON.xml
+                    XElement phieuNhapToDelete = phieuNhapXml.Elements("PHIEUNHAP")
+                        .FirstOrDefault(x => x.Element("IDPhieuNhap")?.Value == idPhieuNhap);
+
+                    if (phieuNhapToDelete != null)
+                    {
+                        phieuNhapToDelete.Remove();
+                        phieuNhapXml.Save(phieuNhapFilePath);
+                    }
+                }
+
+                // Kiểm tra và xử lý file CHITIETHOADON.xml
+                if (File.Exists(chiTietPhieuNhapFilePath))
+                {
+                    XElement chiTietPhieuNhapXml = XElement.Load(chiTietPhieuNhapFilePath);
+
+                    // Tìm và xóa các chi tiết hóa đơn liên quan
+                    var chiTietToDelete = chiTietPhieuNhapXml.Elements("CHITIETPHIEUNHAP")
+                        .Where(x => x.Element("IDPhieuNhap")?.Value == idPhieuNhap)
+                        .ToList();
+
+                    foreach (var chiTiet in chiTietToDelete)
+                    {
+                        chiTiet.Remove();
+                    }
+
+                    chiTietPhieuNhapXml.Save("CHITIETPHIEUNHAP");
+                }
+
+                // Cập nhật lại DataGridView
+                LoadPhieuNhapData();
+                LoadChiTietPhieuNhapData();
+
+                // Xóa dữ liệu trong các TextBox và ComboBox
+                tbIDPhieuNhap.Clear();
+                dtpNgayNhap.Value = DateTime.Now;
+                cbIDNhaCungCap.SelectedIndex = -1;
+                cbIDNhanVien.SelectedIndex = -1;
+                cbIDSach.SelectedIndex = -1;
+                tbSoLuongNhap.Clear();
+                tbDonGiaNhap.Clear();
+
+
+                MessageBox.Show("Xóa hóa đơn thành công.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa hóa đơn: " + ex.Message);
+            }
         }
+
+
+        private void DongBoDuLieuTuXML()
+        {
+            string nhaCungCapXmlPath = "NHACUNGCAP.xml";
+
+            // Kiểm tra tệp XML có tồn tại không
+            if (!File.Exists(nhaCungCapXmlPath))
+            {
+                MessageBox.Show("Tệp XML NHACUNGCAP không tồn tại.");
+                return;
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Đọc và đồng bộ NHACUNGCAP
+                    DongBoNhaCungCap(connection, nhaCungCapXmlPath);
+
+                    MessageBox.Show("Đồng bộ dữ liệu từ XML vào SQL Server thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi trong quá trình đồng bộ: {ex.Message}");
+                }
+            }
+        }
+
+
+
+
+        private void DongBoNhaCungCap(SqlConnection connection, string nhaCungCapXmlPath)
+        {
+            // Đọc dữ liệu từ NHACUNGCAP.xml
+            DataSet dsNhaCungCap = new DataSet();
+            dsNhaCungCap.ReadXml(nhaCungCapXmlPath);
+            DataTable dtNhaCungCap = dsNhaCungCap.Tables["NHACUNGCAP"];
+
+            if (dtNhaCungCap == null)
+            {
+                MessageBox.Show("Không có dữ liệu nhà cung cấp trong tệp XML.");
+                return;
+            }
+
+            var idsInXml = new HashSet<string>();
+            foreach (DataRow row in dtNhaCungCap.Rows)
+            {
+                idsInXml.Add(row["IDNhaCungCap"].ToString());
+
+                // Kiểm tra xem nhà cung cấp đã tồn tại chưa
+                string checkQuery = "SELECT COUNT(*) FROM NHACUNGCAP WHERE IDNhaCungCap = @IDNhaCungCap";
+                SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
+                checkCommand.Parameters.AddWithValue("@IDNhaCungCap", row["IDNhaCungCap"].ToString());
+
+                int count = (int)checkCommand.ExecuteScalar();
+
+                if (count == 0)
+                {
+                    // Thêm mới nhà cung cấp
+                    string insertQuery = "INSERT INTO NHACUNGCAP (IDNhaCungCap, TenNhaCungCap, DiaChi, SoDienThoai, Email) " +
+                                         "VALUES (@IDNhaCungCap, @TenNhaCungCap, @DiaChi, @SoDienThoai, @Email)";
+                    SqlCommand insertCommand = new SqlCommand(insertQuery, connection);
+                    insertCommand.Parameters.AddWithValue("@IDNhaCungCap", row["IDNhaCungCap"].ToString());
+                    insertCommand.Parameters.AddWithValue("@TenNhaCungCap", row["TenNhaCungCap"].ToString());
+                    insertCommand.Parameters.AddWithValue("@DiaChi", row["DiaChi"].ToString());
+                    insertCommand.Parameters.AddWithValue("@SoDienThoai", row["SoDienThoai"].ToString());
+                    insertCommand.Parameters.AddWithValue("@Email", row["Email"].ToString());
+                    insertCommand.ExecuteNonQuery();
+                }
+                else
+                {
+                    // Cập nhật nhà cung cấp
+                    string updateQuery = "UPDATE NHACUNGCAP SET TenNhaCungCap = @TenNhaCungCap, DiaChi = @DiaChi, " +
+                                         "SoDienThoai = @SoDienThoai, Email = @Email WHERE IDNhaCungCap = @IDNhaCungCap";
+                    SqlCommand updateCommand = new SqlCommand(updateQuery, connection);
+                    updateCommand.Parameters.AddWithValue("@IDNhaCungCap", row["IDNhaCungCap"].ToString());
+                    updateCommand.Parameters.AddWithValue("@TenNhaCungCap", row["TenNhaCungCap"].ToString());
+                    updateCommand.Parameters.AddWithValue("@DiaChi", row["DiaChi"].ToString());
+                    updateCommand.Parameters.AddWithValue("@SoDienThoai", row["SoDienThoai"].ToString());
+                    updateCommand.Parameters.AddWithValue("@Email", row["Email"].ToString());
+                    updateCommand.ExecuteNonQuery();
+                }
+            }
+
+            // Xóa nhà cung cấp không tồn tại trong XML
+            string deleteQuery = "DELETE FROM NHACUNGCAP WHERE IDNhaCungCap NOT IN (@NhaCungCapIDs)";
+            SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection);
+            deleteCommand.Parameters.AddWithValue("@NhaCungCapIDs", string.Join(",", idsInXml));
+            deleteCommand.ExecuteNonQuery();
+        }
+
+
+
+
+
 
         private void btnDongBoDuLieu_Click(object sender, EventArgs e)
         {
-
+            DongBoDuLieuTuXML();
         }
     }
 }
